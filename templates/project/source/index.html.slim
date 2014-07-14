@@ -2,13 +2,14 @@
   .header
     .container
       .logo
-      .navigation
-        ul
-          - (1..5).each do |n|
-            li
-              a href="javascript:;"
-                | menu
-                = n
+      =render "partials/navigation"
+      / .navigation
+      /   ul
+      /     - (1..5).each do |n|
+      /       li
+      /         a href="javascript:;"
+      /           | menu
+      /           = n
       .social_nav
   .banner
     .container
