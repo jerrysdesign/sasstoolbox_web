@@ -1,0 +1,124 @@
+@import "sasstoolbox/base"
+
+*, *:before, *:after
+  +box-sizing(border-box)
+img
+  max-width: 100%
+
+body
+  &.debug
+    //background: url("../images/layout.png") center top no-repeat
+
+.wrapper
+  font-family: 'Ubuntu', sans-serif
+  font-weight: 300
+
+
+.logo
+  +size(99px 111px)
+  @extend %ir
+  +bg-retina("../images/logo", "png", 90px, 104px)
+.banner
+  background: url("../images/banner_bg.jpg") center top
+  background-size: cover
+  position: relative
+  height: 456px
+  .text_block
+    +at-breakpoint($desktop)
+      +span-columns(6,12)
+      +pre(1)
+      padding-top: 50px
+    // +column(6)
+    color: $white
+    
+    h1
+      font-size: 72px
+      font-weight: bold
+    p
+  .toolbox_icon
+    +at-breakpoint($desktop)
+      +span-columns(5 omega,12)
+      margin-top: 16px
+      img
+        margin-left: -50px
+        margin-bottom: -50px
+
+.container
+  +at-breakpoint($pad)
+    +container
+    //+susy-grid-background
+  +at-breakpoint($desktop)
+    +container
+    //+susy-grid-background
+
+  // +center-block
+  // +breakpoint(phone)
+  // +breakpoint(smart)
+  // +breakpoint(tablet7)
+  //   +wrapper
+  // +breakpoint(tablet10)
+  //   +wrapper
+  // +breakpoint(pcsmall)
+  //   +wrapper
+  // +breakpoint(pclarge)
+  //   +wrapper
+
+.header
+  height: 135px
+  background-color: #FFF
+  box-shadow: 0 0 10px rgba(0,0,0,.15)
+  .navigation
+  .social_nav
+.margin
+  margin-top: 80px
+.footer
+  background-color: #26292E
+  color: white
+  text-align: center
+  padding-bottom: 20px
+  font-size: 14px
+  h5
+    border-bottom: 1px solid rgba(150,150,150,.3)
+    font-size: 17px
+    line-height: 20px
+    padding: 15px
+  p
+    padding: 15px
+  p+p
+    padding-top: 0
+    margin-top: -10px
+.copyright
+  font-size: 14px
+  padding: 20px
+.hl
+  +at-breakpoint($desktop)
+    +span-columns(10,12)
+    +pre(1)
+  li:nth-child(1)
+    +span-columns(16 omega,16)
+  li:nth-child(2)
+    +span-columns(8,16)
+  li:nth-child(3)
+    +span-columns(4,16)
+  li:nth-child(4)
+    +span-columns(4 omega,16)
+  li:nth-child(5)
+    +span-columns(4,16)
+  li:nth-child(6)
+    +span-columns(4 omega,16)
+    margin-top: -90px
+  li
+    margin-bottom: 10px
+    display: inline-block
+.about
+  +pie-clearfix
+  li
+    +span-columns(3,12)
+    background-color: #2F3238
+    border: 1px solid rgba(150,150,150,.3)
+    height: 239px
+    a
+      display: block
+    &:hover, &.active
+      background-color: #c69
+    +nth-omega(4n)

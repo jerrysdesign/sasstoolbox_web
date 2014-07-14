@@ -1,0 +1,87 @@
+.wrapper
+  .header
+    .container
+      .logo
+      .navigation
+        ul
+          - (1..5).each do |n|
+            li
+              a href="javascript:;"
+                | menu
+                = n
+      .social_nav
+  .banner
+    .container
+      .text_block
+        h1 SassToolbox
+        p
+          |sassToolBox參考了
+          a href="javascript:;" compass 
+          | 和 
+          a href="javascript:;" bourbon
+          | 等 sass Library，根據項目實務經驗，歸納整理而成，特別是中文語系文字排版，目前持續更新完善中...
+        p sassToolBox提供了一些基礎和常用的工具，基於它你可以擴展出很多組件等，幫助你更快完成全域設定生成CSS，如果你對這個有興趣，可以參考以下sassToolBox的GitHub。
+
+        = link_to('GitHub', 'javascript:;' ,:class => 'btn')
+      .toolbox_icon
+        img src="images/toolbox-icon-pink.png"
+  .margin
+    .container
+      ul#da-thumbs.da-thumbs.hl
+        li
+          a href='javascript:;'
+            = image_tag('tilesass.png')
+            .hover_cover
+              h3 為設計師而生
+              span 以SASS為基礎，
+        li
+          a href='javascript:;'
+            = image_tag('work_1.png')
+            .hover_cover
+              h3 超齊全
+              span 內容除幫你做基礎設定之外，整合收錄animate.css、font awesome、按鈕、互動訊息、表單、表格、中文排版...等樣式組件，並提供使用者可自行定
+        li
+          a href='javascript:;'
+            = image_tag('work_2.png')
+            .hover_cover
+              h3 rwd響應式設計
+              span 
+                | 原採用 paranoida的 sass-mediaqueries，希望更容易讓使用者上手，目前你擬用較多人使用的susy one。
+        li
+          a href='javascript:;'
+            = image_tag('work_3.png')
+            .hover_cover
+              h3 超快速
+              span sass本身就是一個極具效率的語言，網路上亦有許多開法者發佈以sass語言為主的資源，其中不泛有些組合是會中雷的，根據實務經驗盡可能找出完美組合，大幅縮短爬文看文件的時間。
+        li
+          a href='javascript:;'
+            = image_tag('work_4.png')
+            .hover_cover
+              h3 超快速
+              span sass本身就是一個極具效率的語言，網路上亦有許多開法者發佈以sass語言為主的資源，其中不泛有些組合是會中雷的，根據實務經驗盡可能找出完美組合，大幅縮短爬文看文件的時間。
+        li
+          a href='javascript:;'
+            = image_tag('work_5.png')
+            .hover_cover
+              h3 為設計師而生
+              span 超多時間喝咖啡
+    
+  .footer
+    h5 About me
+    .container
+      p Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+      p Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci.
+      ul.about
+        li
+          a href='javascript:;' = lorem_words 5 
+        li
+          a href='javascript:;' = lorem_words 5 
+        li
+          a href='javascript:;' = lorem_words 5 
+        li
+          a href='javascript:;' = lorem_words 5 
+      P.copyright
+        = link_to('github','github')
+        |  / 作者：JJ.禎禎
+        br
+        | ©版權沒有 sasstoolbox
