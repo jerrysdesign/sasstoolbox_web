@@ -1,5 +1,9 @@
 @import "sasstoolbox/base"
 
+/* custom */
+$primary   : #c69
+$menu_link : $primary
+
 *, *:before, *:after
   +box-sizing(border-box)
 img
@@ -15,9 +19,11 @@ body
 
 
 .logo
-  +size(99px 111px)
+  +size(82px 90px)
   @extend %ir
-  +bg-retina("../images/logo", "png", 90px, 104px)
+  +bg-retina("../images/logo", "png", 82px, 90px)
+  position: absolute
+  top: 22px
 .banner
   background: url("../images/banner_bg.jpg") center top
   background-size: cover
@@ -67,7 +73,9 @@ body
   height: 135px
   background-color: #FFF
   box-shadow: 0 0 10px rgba(0,0,0,.15)
+  position: relative
   .navigation
+    position: absolute
   .social_nav
 .margin
   margin-top: 80px
@@ -128,7 +136,7 @@ body
 
 /* reset  list style */
 
-.cbp-tm-menu
+.navigation
   list-style: none
   ul
     list-style: none
@@ -136,8 +144,7 @@ body
   position: absolute
   z-index: 1000
   bottom: 0
-  width: 100%
-  background: #47a3da
+  right: 0
   text-align: right
   padding: 0 2em
   margin: 0
@@ -151,19 +158,19 @@ body
       padding: 0 0.3em
       font-size: 1.2em
       display: block
-      color: #fff
+      color: $menu_link
 
 /* set menu position; change here to set to relative or float, etc. */
 
 /* first level menu items */
 
-.no-touch .cbp-tm-menu > li > a
+.no-touch .navigation > li > a
   &:hover, &:active
-    color: #02639d
+    color: $menu_link
 
 /* sumbenu with transitions */
 
-.cbp-tm-submenu
+.submenu
   position: absolute
   display: block
   visibility: hidden
@@ -171,11 +178,9 @@ body
   padding: 0
   text-align: left
   pointer-events: none
-  -webkit-transition: visibility 0s, opacity 0s
-  -moz-transition: visibility 0s, opacity 0s
-  transition: visibility 0s, opacity 0s
-
-.cbp-tm-show .cbp-tm-submenu
+  +transition (visibility 0s, opacity 0s)
+  
+.menu-show .submenu
   width: 16em
   left: 50%
   margin: 0 0 0 -8em
@@ -186,33 +191,33 @@ body
   -moz-transition: visibility 0s, opacity 0.3s
   transition: visibility 0s, opacity 0.3s
 
-.cbp-tm-show-above .cbp-tm-submenu
+.menu-show-above .submenu
   bottom: 100%
   padding-bottom: 10px
 
-.cbp-tm-show-below .cbp-tm-submenu
+.menu-show-below .submenu
   top: 100%
   padding-top: 10px
 
 /* extreme cases: not enough space on the sides */
 
-.cbp-tm-nospace-right .cbp-tm-submenu
+.cbp-tm-nospace-right .submenu
   right: 0
   left: auto
 
-.cbp-tm-nospace-left .cbp-tm-submenu
+.cbp-tm-nospace-left .submenu
   left: 0
 
 /* last menu item has to fit on the screen */
 
-.cbp-tm-menu > li:last-child .cbp-tm-submenu
+.navigation > li:last-child .submenu
   right: 0
 
 /*  
  *arrow: depending on where the menu will be shown, we set 
  *the right position for the arrow
  */
-.cbp-tm-submenu:after
+.submenu:after
   border: solid transparent
   content: " "
   height: 0
@@ -220,27 +225,27 @@ body
   position: absolute
   pointer-events: none
 
-.cbp-tm-show-above .cbp-tm-submenu:after
+.menu-show-above .submenu:after
   top: 100%
   margin-top: -10px
 
-.cbp-tm-show-below .cbp-tm-submenu:after
+.menu-show-below .submenu:after
   bottom: 100%
   margin-bottom: -10px
 
-.cbp-tm-submenu:after
+.submenu:after
   border-color: transparent
   border-width: 16px
   margin-left: -16px
   left: 50%
 
-.cbp-tm-show-above .cbp-tm-submenu:after
+.menu-show-above .submenu:after
   border-top-color: #fff
 
-.cbp-tm-show-below .cbp-tm-submenu:after
+.menu-show-below .submenu:after
   border-bottom-color: #fff
 
-.cbp-tm-submenu > li
+.submenu > li
   display: block
   background: #fff
   > a
@@ -255,14 +260,14 @@ body
     -moz-transition: all 0.2s
     transition: all 0.2s
 
-.no-touch .cbp-tm-submenu > li > a
+.no-touch .submenu > li > a
   &:hover, &:active
     color: #fff
     background: #47a3da
 
 /* the icons (main level menu icon and sublevel icons) */
 
-.cbp-tm-submenu li a:before, .cbp-tm-menu > li > a:before
+.submenu li a:before, .navigation > li > a:before
   font-family: 'cbp-tmicons'
   speak: none
   font-style: normal
@@ -274,13 +279,13 @@ body
   margin-right: 0.6em
   -webkit-font-smoothing: antialiased
 
-.cbp-tm-submenu li a:before
+.submenu li a:before
   position: absolute
   top: 50%
   margin-top: -0.5em
   right: 0.5em
 
-.cbp-tm-menu > li > a:not(:only-child):before
+.navigation > li > a:not(:only-child):before
   content: "\f0c9"
   font-size: 60%
   opacity: 0.3
@@ -336,46 +341,46 @@ body
 .cbp-tm-icon-help:before
   content: "\e012"
 
-/* Media Queries */
-@media screen and (max-width: 55.6875em)
-  .cbp-tm-menu
-    font-size: 80%
+// /* Media Queries */
+// @media screen and (max-width: 55.6875em)
+//   .navigation
+//     font-size: 80%
 
-@media screen and (max-height: 25.25em), screen and (max-width: 44.3125em)
-  .cbp-tm-menu
-    font-size: 100%
-    position: relative
-    text-align: center
-    padding: 0
-    top: auto
-    > li
-      display: block
-      margin: 0
-      border-bottom: 4px solid #3793ca
-      &:first-child
-        border-top: 4px solid #3793ca
-  li.cbp-tm-show > a
-    color: #fff
-    background: #02639d
-  .no-touch .cbp-tm-menu > li > a
-    &:hover, &:active
-      color: #fff
-      background: #02639d
-  .cbp-tm-submenu
-    position: relative
-    display: none
-    width: 100%
-    > li
-      padding: 0
-      > a
-        padding: 0.6em 2.3em 0.6em 0.6em
-        border: none
-        border-bottom: 2px solid #6fbbe9
-    &:after
-      display: none
-  .cbp-tm-menu .cbp-tm-show .cbp-tm-submenu
-    display: block
-    width: 100%
-    left: 0
-    margin: 0
-    padding: 0
+// @media screen and (max-height: 25.25em), screen and (max-width: 44.3125em)
+//   .navigation
+//     font-size: 100%
+//     position: relative
+//     text-align: center
+//     padding: 0
+//     top: auto
+//     > li
+//       display: block
+//       margin: 0
+//       border-bottom: 4px solid #3793ca
+//       &:first-child
+//         border-top: 4px solid #3793ca
+//   li.menu-show > a
+//     color: #fff
+//     background: #02639d
+//   .no-touch .navigation > li > a
+//     &:hover, &:active
+//       color: #fff
+//       background: #02639d
+//   .submenu
+//     position: relative
+//     display: none
+//     width: 100%
+//     > li
+//       padding: 0
+//       > a
+//         padding: 0.6em 2.3em 0.6em 0.6em
+//         border: none
+//         border-bottom: 2px solid #6fbbe9
+//     &:after
+//       display: none
+//   .navigation .menu-show .submenu
+//     display: block
+//     width: 100%
+//     left: 0
+//     margin: 0
+//     padding: 0

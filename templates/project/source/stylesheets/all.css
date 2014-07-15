@@ -403,14 +403,15 @@ hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin:
 .article .fr img { margin-left: 10px; }
 .article .fl img { margin-right: 10px; }
 
+/* custom */
 *, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 img { max-width: 100%; }
 
 .wrapper { font-family: "Ubuntu", sans-serif; font-weight: 300; }
 
-.logo { height: 111px; width: 99px; background-image: url("../images/logo.png"); }
-@media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) { .logo { background-image: url("../images/logo@2x.png"); -webkit-background-size: 90px 104px; } }
+.logo { height: 90px; width: 82px; background-image: url("../images/logo.png"); position: absolute; top: 22px; }
+@media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) { .logo { background-image: url("../images/logo@2x.png"); -webkit-background-size: 82px 90px; } }
 
 .banner { background: url("../images/banner_bg.jpg") center top; background-size: cover; position: relative; height: 456px; }
 .banner .text_block { color: white; }
@@ -424,7 +425,8 @@ img { max-width: 100%; }
 @media (min-width: 71em) { .container { max-width: 71em; padding-left: 1em; padding-right: 1em; margin-left: auto; margin-right: auto; }
   .container:after { content: ""; display: table; clear: both; } }
 
-.header { height: 135px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+.header { height: 135px; background-color: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); position: relative; }
+.header .navigation { position: absolute; }
 
 .margin { margin-top: 80px; }
 
@@ -452,56 +454,56 @@ img { max-width: 100%; }
 .about li:nth-child(4n) { float: right; margin-right: 0; }
 
 /* reset  list style */
-.cbp-tm-menu { list-style: none; display: block; position: absolute; z-index: 1000; bottom: 0; width: 100%; background: #47a3da; text-align: right; padding: 0 2em; margin: 0; text-transform: capitalize; }
-.cbp-tm-menu ul { list-style: none; }
-.cbp-tm-menu > li { display: inline-block; margin: 0 2.6em; position: relative; }
-.cbp-tm-menu > li > a { line-height: 4em; padding: 0 0.3em; font-size: 1.2em; display: block; color: white; }
+.navigation { list-style: none; display: block; position: absolute; z-index: 1000; bottom: 0; right: 0; text-align: right; padding: 0 2em; margin: 0; text-transform: capitalize; }
+.navigation ul { list-style: none; }
+.navigation > li { display: inline-block; margin: 0 2.6em; position: relative; }
+.navigation > li > a { line-height: 4em; padding: 0 0.3em; font-size: 1.2em; display: block; color: #cc6699; }
 
 /* set menu position; change here to set to relative or float, etc. */
 /* first level menu items */
-.no-touch .cbp-tm-menu > li > a:hover, .no-touch .cbp-tm-menu > li > a:active { color: #02639d; }
+.no-touch .navigation > li > a:hover, .no-touch .navigation > li > a:active { color: #cc6699; }
 
 /* sumbenu with transitions */
-.cbp-tm-submenu { position: absolute; display: block; visibility: hidden; opacity: 0; padding: 0; text-align: left; pointer-events: none; -webkit-transition: visibility 0s, opacity 0s; -moz-transition: visibility 0s, opacity 0s; transition: visibility 0s, opacity 0s; }
+.submenu { position: absolute; display: block; visibility: hidden; opacity: 0; padding: 0; text-align: left; pointer-events: none; -webkit-transition: visibility 0s, opacity 0s; transition: visibility 0s, opacity 0s; }
 
-.cbp-tm-show .cbp-tm-submenu { width: 16em; left: 50%; margin: 0 0 0 -8em; opacity: 1; visibility: visible; pointer-events: auto; -webkit-transition: visibility 0s, opacity 0.3s; -moz-transition: visibility 0s, opacity 0.3s; transition: visibility 0s, opacity 0.3s; }
+.menu-show .submenu { width: 16em; left: 50%; margin: 0 0 0 -8em; opacity: 1; visibility: visible; pointer-events: auto; -webkit-transition: visibility 0s, opacity 0.3s; -moz-transition: visibility 0s, opacity 0.3s; transition: visibility 0s, opacity 0.3s; }
 
-.cbp-tm-show-above .cbp-tm-submenu { bottom: 100%; padding-bottom: 10px; }
+.menu-show-above .submenu { bottom: 100%; padding-bottom: 10px; }
 
-.cbp-tm-show-below .cbp-tm-submenu { top: 100%; padding-top: 10px; }
+.menu-show-below .submenu { top: 100%; padding-top: 10px; }
 
 /* extreme cases: not enough space on the sides */
-.cbp-tm-nospace-right .cbp-tm-submenu { right: 0; left: auto; }
+.cbp-tm-nospace-right .submenu { right: 0; left: auto; }
 
-.cbp-tm-nospace-left .cbp-tm-submenu { left: 0; }
+.cbp-tm-nospace-left .submenu { left: 0; }
 
 /* last menu item has to fit on the screen */
-.cbp-tm-menu > li:last-child .cbp-tm-submenu { right: 0; }
+.navigation > li:last-child .submenu { right: 0; }
 
 /*arrow: depending on where the menu will be shown, we set  the right position for the arrow */
-.cbp-tm-submenu:after { border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; }
+.submenu:after { border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; }
 
-.cbp-tm-show-above .cbp-tm-submenu:after { top: 100%; margin-top: -10px; }
+.menu-show-above .submenu:after { top: 100%; margin-top: -10px; }
 
-.cbp-tm-show-below .cbp-tm-submenu:after { bottom: 100%; margin-bottom: -10px; }
+.menu-show-below .submenu:after { bottom: 100%; margin-bottom: -10px; }
 
-.cbp-tm-submenu:after { border-color: transparent; border-width: 16px; margin-left: -16px; left: 50%; }
+.submenu:after { border-color: transparent; border-width: 16px; margin-left: -16px; left: 50%; }
 
-.cbp-tm-show-above .cbp-tm-submenu:after { border-top-color: white; }
+.menu-show-above .submenu:after { border-top-color: white; }
 
-.cbp-tm-show-below .cbp-tm-submenu:after { border-bottom-color: white; }
+.menu-show-below .submenu:after { border-bottom-color: white; }
 
-.cbp-tm-submenu > li { display: block; background: white; }
-.cbp-tm-submenu > li > a { padding: 5px 2.3em 5px 0.6em; /* top/bottom paddings in 'em' cause a tiny "jump" in Chrome on Win */ display: block; font-size: 1.2em; position: relative; color: #47a3da; border: 4px solid white; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
+.submenu > li { display: block; background: white; }
+.submenu > li > a { padding: 5px 2.3em 5px 0.6em; /* top/bottom paddings in 'em' cause a tiny "jump" in Chrome on Win */ display: block; font-size: 1.2em; position: relative; color: #47a3da; border: 4px solid white; -webkit-transition: all 0.2s; -moz-transition: all 0.2s; transition: all 0.2s; }
 
-.no-touch .cbp-tm-submenu > li > a:hover, .no-touch .cbp-tm-submenu > li > a:active { color: white; background: #47a3da; }
+.no-touch .submenu > li > a:hover, .no-touch .submenu > li > a:active { color: white; background: #47a3da; }
 
 /* the icons (main level menu icon and sublevel icons) */
-.cbp-tm-submenu li a:before, .cbp-tm-menu > li > a:before { font-family: "cbp-tmicons"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; vertical-align: middle; margin-right: 0.6em; -webkit-font-smoothing: antialiased; }
+.submenu li a:before, .navigation > li > a:before { font-family: "cbp-tmicons"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; vertical-align: middle; margin-right: 0.6em; -webkit-font-smoothing: antialiased; }
 
-.cbp-tm-submenu li a:before { position: absolute; top: 50%; margin-top: -0.5em; right: 0.5em; }
+.submenu li a:before { position: absolute; top: 50%; margin-top: -0.5em; right: 0.5em; }
 
-.cbp-tm-menu > li > a:not(:only-child):before { content: "\f0c9"; font-size: 60%; opacity: 0.3; }
+.navigation > li > a:not(:only-child):before { content: "\f0c9"; font-size: 60%; opacity: 0.3; }
 
 .cbp-tm-icon-archive:before { content: "\e002"; }
 
@@ -536,16 +538,3 @@ img { max-width: 100%; }
 .cbp-tm-icon-refresh:before { content: "\e011"; }
 
 .cbp-tm-icon-help:before { content: "\e012"; }
-
-/* Media Queries */
-@media screen and (max-width: 55.6875em) { .cbp-tm-menu { font-size: 80%; } }
-@media screen and (max-height: 25.25em), screen and (max-width: 44.3125em) { .cbp-tm-menu { font-size: 100%; position: relative; text-align: center; padding: 0; top: auto; }
-  .cbp-tm-menu > li { display: block; margin: 0; border-bottom: 4px solid #3793ca; }
-  .cbp-tm-menu > li:first-child { border-top: 4px solid #3793ca; }
-  li.cbp-tm-show > a { color: white; background: #02639d; }
-  .no-touch .cbp-tm-menu > li > a:hover, .no-touch .cbp-tm-menu > li > a:active { color: white; background: #02639d; }
-  .cbp-tm-submenu { position: relative; display: none; width: 100%; }
-  .cbp-tm-submenu > li { padding: 0; }
-  .cbp-tm-submenu > li > a { padding: 0.6em 2.3em 0.6em 0.6em; border: none; border-bottom: 2px solid #6fbbe9; }
-  .cbp-tm-submenu:after { display: none; }
-  .cbp-tm-menu .cbp-tm-show .cbp-tm-submenu { display: block; width: 100%; left: 0; margin: 0; padding: 0; } }
